@@ -91,3 +91,9 @@ percona_server_libmysqlclient_map:
   5.6: libperconaserverclient18.1
   5.7: libperconaserverclient20
   8.0: libperconaserverclient21
+
+limits:
+  nofile: 65535
+  nproc: 65535
+  memlock: infinity
+  oom_score_adjust: -1000

@@ -30,6 +30,12 @@
     - percona-server
     - percona-server-configure
 
+- include_tasks: systemd.yml
+  tags:
+    - configuration
+    - percona-server
+    - percona-server-configure
+
 - include_tasks: toolkit-udfs.yml
   tags:
     - configuration

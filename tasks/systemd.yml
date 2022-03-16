@@ -1,0 +1,22 @@
+# tasks file
+---
+- name: ensure systemd override directory exists
+  ansible.builtin.file:
+    path: "/etc/systemd/system/mysql.service.d"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  tags:
+    - percona-server-configure-systemd
+
+- name: configure systemd limits for mysql
+  ansible.builtin.template:
+    src: "etc/systemd/mysql.override.j2"
+    dest: "/etc/systemd/system/mysql.service.d/override.conf"
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart percona-server
+  tags:
+    - percona-server-configure-systemd
