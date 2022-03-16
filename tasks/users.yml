@@ -1,6 +1,7 @@
 # tasks file
 ---
 - name: users | create (default hosts)
+  no_log: true
   mysql_user:
     name: "{{ item[0].name }}"
     password: "{{ item[0].password }}"
@@ -15,6 +16,7 @@
     - percona-server-users-create-default-hosts
 
 - name: users | create (custom hosts)
+  no_log: true
   mysql_user:
     name: "{{ item[0].name }}"
     password: "{{ item[0].password }}"
