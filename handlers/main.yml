@@ -1,5 +1,9 @@
 # handlers file
 ---
+- name: reload systemd
+  ansible.builtin.systemd:
+    daemon_reload: yes
+
 - name: restart percona-server
   ansible.builtin.service:
     name: mysql

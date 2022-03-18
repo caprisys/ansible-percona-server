@@ -17,6 +17,8 @@
     owner: root
     group: root
     mode: 0644
-  notify: restart percona-server
+  notify:
+    - reload systemd
+    - restart percona-server
   tags:
     - percona-server-configure-systemd
